@@ -15,6 +15,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int color = Color.WHITE;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -28,6 +30,20 @@ public class MainActivity extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        if (savedInstanceState != null){
+            color = savedInstanceState.getInt("Color");
+            RelativeLayout home_page = (RelativeLayout) findViewById(R.id.home_page);
+            home_page.setBackgroundColor(color);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        setContentView(R.layout.activity_main);
+
+        outState.putInt("Color", color);
     }
 
     @Override
@@ -75,26 +91,31 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "ეკრანი გაწითლდა", Toast.LENGTH_SHORT).show();
             RelativeLayout home_page = (RelativeLayout) findViewById(R.id.home_page);
             home_page.setBackgroundColor(Color.RED);
+            color = Color.RED;
         }
         else if (buttons.getId() == R.id.blue) {
             Toast.makeText(this, "ეკრანი გალურჯდა", Toast.LENGTH_SHORT).show();
             RelativeLayout home_page = (RelativeLayout) findViewById(R.id.home_page);
             home_page.setBackgroundColor(Color.BLUE);
+            color = Color.BLUE;
         }
         else if (buttons.getId() == R.id.white) {
             Toast.makeText(this, "ეკრანი გათეთრდა", Toast.LENGTH_SHORT).show();
             RelativeLayout home_page = (RelativeLayout) findViewById(R.id.home_page);
             home_page.setBackgroundColor(Color.WHITE);
+            color = Color.WHITE;
         }
         else if (buttons.getId() == R.id.green) {
             Toast.makeText(this, "ეკრანი გამწვანდა", Toast.LENGTH_SHORT).show();
             RelativeLayout home_page = (RelativeLayout) findViewById(R.id.home_page);
             home_page.setBackgroundColor(Color.GREEN);
+            color = Color.GREEN;
         }
         else if (buttons.getId() == R.id.yellow) {
             Toast.makeText(this, "ეკრანი გაყვითლდა", Toast.LENGTH_SHORT).show();
             RelativeLayout home_page = (RelativeLayout) findViewById(R.id.home_page);
             home_page.setBackgroundColor(Color.YELLOW);
+            color = Color.YELLOW;
         }
     }
 }
