@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Homework01 (Shitty Flashlight)</string>
+
+    <string name="portrait_mode">პორტრეტის რეჟიმი</string>
+    <string name="red">R</string>
+    <string name="blue">B</string>
+    <string name="white">W</string>
+    <string name="green">G</string>
+    <string name="yellow">Y</string>
+</resources>
