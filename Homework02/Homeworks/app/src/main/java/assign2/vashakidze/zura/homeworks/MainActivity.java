@@ -1,5 +1,6 @@
 package assign2.vashakidze.zura.homeworks;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MathCompCharacters character = (MathCompCharacters) parent.getAdapter().getItem(position);
-                Toast.makeText(getApplicationContext(), character.getName(), Toast.LENGTH_LONG).show();
+                Intent nextIntent = new Intent(view.getContext(), people_detals.class);
+                MathCompCharacters decription = (MathCompCharacters) parent.getAdapter().getItem(position);
+                nextIntent.putExtra("Description", decription.getDescription());
+                startActivity(nextIntent);
             }
         });
 
